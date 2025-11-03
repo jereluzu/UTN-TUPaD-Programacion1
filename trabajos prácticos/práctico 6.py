@@ -1,86 +1,106 @@
 # ejercicio 1
-def imprimir_hola_mundo():
-    print("Hola Mundo!")
-
-imprimir_hola_mundo()
+precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450}
+precios_frutas['Naranja'] = 1200
+precios_frutas['Manzana'] = 1500
+precios_frutas['Pera'] = 2300
+print(precios_frutas)
 
 # ejercicio 2
-def saludar_usuario(nombre):
-    return f"Hola {nombre}!"
+precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450, 'Naranja': 1200, 'Manzana': 1500, 'Pera': 2300}
+precios_frutas['Banana'] = 1330
+precios_frutas['Manzana'] = 1700
+precios_frutas['Melón'] = 2800
+print(precios_frutas)
 
-nombre = input("Ingresa tu nombre: ")
-print(saludar_usuario(nombre))
-
-# ejericicio 3
-def informacion_personal(nombre, apellido, edad, residencia):
-    print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}.")
-
-nombre = input("Nombre: ")
-apellido = input("Apellido: ")
-edad = int(input("Edad: "))
-residencia = input("Residencia: ")
-informacion_personal(nombre, apellido, edad, residencia)
+# ejercicio 3
+precios_frutas = {'Banana': 1330, 'Ananá': 2500, 'Melón': 2800, 'Uva': 1450, 'Naranja': 1200, 'Manzana': 1700, 'Pera': 2300}
+frutas = list(precios_frutas.keys())
+print(frutas)
 
 # ejercicio 4
-import math
+contactos = {}
+for _ in range(5):
+    nombre = input("Nombre: ")
+    numero = input("Teléfono: ")
+    contactos[nombre] = numero
 
-def calcular_area_circulo(radio):
-    return math.pi * radio ** 2
-
-def calcular_perimetro_circulo(radio):
-    return 2 * math.pi * radio
-
-radio = float(input("Ingresa el radio: "))
-print(f"Área: {calcular_area_circulo(radio):.2f}")
-print(f"Perímetro: {calcular_perimetro_circulo(radio):.2f}")
+buscar = input("Buscar contacto: ")
+if buscar in contactos:
+    print(contactos[buscar])
+else:
+    print("No existe")
 
 # ejercicio 5
-def segundos_a_horas(segundos):
-    return segundos / 3600
+frase = input("Ingresa una frase: ").lower().split()
+unicas = set(frase)
+frecuencia = {}
+for palabra in frase:
+    frecuencia[palabra] = frecuencia.get(palabra, 0) + 1
 
-segundos = int(input("Ingresa los segundos: "))
-print(f"{segundos} segundos = {segundos_a_horas(segundos):.4f} horas")
+print("Palabras únicas:", unicas)
+print("Frecuencia:", frecuencia)
 
 # ejercicio 6
-def tabla_multiplicar(numero):
-    for i in range(1, 11):
-        print(f"{numero} x {i} = {numero * i}")
+alumnos = {}
+for _ in range(3):
+    nombre = input("Nombre del alumno: ")
+    n1 = float(input("Nota 1: "))
+    n2 = float(input("Nota 2: "))
+    n3 = float(input("Nota 3: "))
+    alumnos[nombre] = (n1, n2, n3)
 
-numero = int(input("Ingresa un número: "))
-tabla_multiplicar(numero)
+for nombre, notas in alumnos.items():
+    promedio = sum(notas) / 3
+    print(f"{nombre}: {promedio:.2f}")
 
 # ejercicio 7
-def operaciones_basicas(a, b):
-    return a + b, a - b, a * b, a / b if b != 0 else "Error"
+parcial1 = {101, 102, 103, 104, 105}
+parcial2 = {102, 104, 106, 107}
 
-a = float(input("Primer número: "))
-b = float(input("Segundo número: "))
-suma, resta, multi, div = operaciones_basicas(a, b)
-print(f"Suma: {suma}")
-print(f"Resta: {resta}")
-print(f"Multiplicación: {multi}")
-print(f"División: {div}")
+ambos = parcial1 & parcial2
+solo_uno = parcial1 ^ parcial2
+al_menos_uno = parcial1 | parcial2
+
+print("Aprobaron ambos:", ambos)
+print("Aprobaron solo uno:", solo_uno)
+print("Al menos uno:", al_menos_uno)
 
 # ejercicio 8
-def calcular_imc(peso, altura):
-    return round(peso / (altura ** 2), 2)
-
-peso = float(input("Peso (kg): "))
-altura = float(input("Altura (m): "))
-print(f"IMC: {calcular_imc(peso, altura)}")
+stock = {}
+while True:
+    producto = input("Producto (o 'salir'): ")
+    if producto == 'salir':
+        break
+    if producto in stock:
+        opcion = input("1. Consultar  2. Agregar stock: ")
+        if opcion == '1':
+            print(stock[producto])
+        else:
+            cantidad = int(input("Unidades a sumar: "))
+            stock[producto] += cantidad
+    else:
+        cantidad = int(input("Stock inicial: "))
+        stock[producto] = cantidad
 
 # ejercicio 9
-def celsius_a_fahrenheit(celsius):
-    return (celsius * 9/5) + 32
+agenda = {}
+while True:
+    dia = input("Día (o 'salir'): ")
+    if dia == 'salir':
+        break
+    hora = input("Hora: ")
+    evento = input("Evento: ")
+    agenda[(dia, hora)] = evento
 
-celsius = float(input("Temperatura en °C: "))
-print(f"{celsius}°C = {celsius_a_fahrenheit(celsius):.2f}°F")
+consulta_dia = input("Consultar día: ")
+consulta_hora = input("Consultar hora: ")
+clave = (consulta_dia, consulta_hora)
+if clave in agenda:
+    print(agenda[clave])
+else:
+    print("No hay evento")
 
 # ejercicio 10
-def calcular_promedio(a, b, c):
-    return (a + b + c) / 3
-
-a = float(input("Número 1: "))
-b = float(input("Número 2: "))
-c = float(input("Número 3: "))
-print(f"Promedio: {calcular_promedio(a, b, c):.2f}")
+original = {'Argentina': 'Buenos Aires', 'Chile': 'Santiago', 'Perú': 'Lima'}
+invertido = {capital: pais for pais, capital in original.items()}
+print(invertido)

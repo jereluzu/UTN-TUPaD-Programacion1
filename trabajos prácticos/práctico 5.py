@@ -1,57 +1,86 @@
-#punto 1
-compras = [["pan", "leche"], ["arroz", "fideos", "salsa"], ["agua"]]
-compras[2].append("jugo")
-compras[1][1] = "tallarines"
-compras[0].remove("pan")
-print(compras)
+# ejercicio 1
+def imprimir_hola_mundo():
+    print("Hola Mundo!")
 
-#punto 2
-lista = ["manzana", "banana", "naranja", "uva", "pera"]
-print(lista[-2])  
+imprimir_hola_mundo()
 
-#punto 3
-lista_vacia = []
-lista_vacia.append("perro")
-lista_vacia.append("gato")
-lista_vacia.append("conejo")
-print(lista_vacia)
+# ejercicio 2
+def saludar_usuario(nombre):
+    return f"Hola {nombre}!"
 
-#punto 4
-animales = ["perro", "gato", "conejo", "pez"]
-animales[1] = "loro"
-animales[-1] = "oso"
-print(animales)
+nombre = input("Ingresa tu nombre: ")
+print(saludar_usuario(nombre))
 
-#punto 5
-#El programa trabaja con una lista llamada numeros la cual contiene 5 valores enteros: 8, 15, 3, 22 y 7. Ocurre lo siguiente:
-# -Se usa la función max(numeros) que sirve para encontrar el número más grande dentro de la lista, la cual en este caso sería el 22.
-# -Después, se usa remove() el cual elimina el valor máximo, es decir el 22, de la lista.
-# -Por último, se usa print(numeros) para mostrar la lista actualizada sin el número 22
+# ejericicio 3
+def informacion_personal(nombre, apellido, edad, residencia):
+    print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}.")
 
-#punto 6
-num = list(range(10, 31, 5))
-print(num[:2])
+nombre = input("Nombre: ")
+apellido = input("Apellido: ")
+edad = int(input("Edad: "))
+residencia = input("Residencia: ")
+informacion_personal(nombre, apellido, edad, residencia)
 
-#punto 7
-autos = ["sedan", "polo", "suran", "gol"]
-autos[1] = "fiat"
-autos[2] = "renault"
-print(autos)
+# ejercicio 4
+import math
 
-#punto 8
-dobles = []
-dobles.append(5 * 2)
-dobles.append(10 * 2)
-dobles.append(15 * 2)
-print(dobles)
+def calcular_area_circulo(radio):
+    return math.pi * radio ** 2
 
-#punto 9
-compras = [["pan", "leche"], ["arroz", "fideos", "salsa"], ["agua"]]
-compras[2].append("jugo")
-compras[1][1] = "tallarines"
-compras[0].remove("pan")
-print(compras)
+def calcular_perimetro_circulo(radio):
+    return 2 * math.pi * radio
 
-#punto 10
-lista_anidada = [15, True, [25.5, 57.9, 30.6], False]
-print(lista_anidada)
+radio = float(input("Ingresa el radio: "))
+print(f"Área: {calcular_area_circulo(radio):.2f}")
+print(f"Perímetro: {calcular_perimetro_circulo(radio):.2f}")
+
+# ejercicio 5
+def segundos_a_horas(segundos):
+    return segundos / 3600
+
+segundos = int(input("Ingresa los segundos: "))
+print(f"{segundos} segundos = {segundos_a_horas(segundos):.4f} horas")
+
+# ejercicio 6
+def tabla_multiplicar(numero):
+    for i in range(1, 11):
+        print(f"{numero} x {i} = {numero * i}")
+
+numero = int(input("Ingresa un número: "))
+tabla_multiplicar(numero)
+
+# ejercicio 7
+def operaciones_basicas(a, b):
+    return a + b, a - b, a * b, a / b if b != 0 else "Error"
+
+a = float(input("Primer número: "))
+b = float(input("Segundo número: "))
+suma, resta, multi, div = operaciones_basicas(a, b)
+print(f"Suma: {suma}")
+print(f"Resta: {resta}")
+print(f"Multiplicación: {multi}")
+print(f"División: {div}")
+
+# ejercicio 8
+def calcular_imc(peso, altura):
+    return round(peso / (altura ** 2), 2)
+
+peso = float(input("Peso (kg): "))
+altura = float(input("Altura (m): "))
+print(f"IMC: {calcular_imc(peso, altura)}")
+
+# ejercicio 9
+def celsius_a_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+celsius = float(input("Temperatura en °C: "))
+print(f"{celsius}°C = {celsius_a_fahrenheit(celsius):.2f}°F")
+
+# ejercicio 10
+def calcular_promedio(a, b, c):
+    return (a + b + c) / 3
+
+a = float(input("Número 1: "))
+b = float(input("Número 2: "))
+c = float(input("Número 3: "))
+print(f"Promedio: {calcular_promedio(a, b, c):.2f}")
